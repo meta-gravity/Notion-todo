@@ -10,6 +10,15 @@ import {
   RocketIcon,
 } from "@radix-ui/react-icons"
 
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
+  
+
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut } from "@/components/ui/command"
 
 export function CommandDialogDemo() {
@@ -30,7 +39,7 @@ export function CommandDialogDemo() {
   return (
     <>
       <p className="text-sm text-muted-foreground">
-        Press{"z "}
+        Press{" "}
         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-xs">⌘</span>J
         </kbd>
@@ -61,7 +70,19 @@ export function CommandDialogDemo() {
             <CommandItem>
               <PersonIcon className="mr-2 h-4 w-4" />
               <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
+              <CommandShortcut>⌘p</CommandShortcut>
+              <CommandItem >
+              <Select>
+                <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Theme" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="light">Light</SelectItem>
+                    <SelectItem value="dark">Dark</SelectItem>
+                    <SelectItem value="system">System</SelectItem>
+                </SelectContent>
+                </Select>
+              </CommandItem>
             </CommandItem>
             {/* <CommandItem>
               <EnvelopeClosedIcon className="mr-2 h-4 w-4" />
